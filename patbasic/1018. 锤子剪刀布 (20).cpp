@@ -78,13 +78,13 @@ int main()
 	int n;
 	while((cin>>n)!=NULL)
 	{
-		if(n<=100000&&n>0)
-		{
-			char temp[3];
-			getchar();
-			for(int i=0;i<n;i++)
-			{
-				gets(temp);
+        if(n<=100000&&n>0)
+        {
+            char temp[3];
+            getchar();
+            for(int i=0;i<n;i++)
+            {
+                gets(temp);
 				f(temp[0],temp[2]);
 			}	
 			cout<<result[0]<<" "<<result[1]<<" "<<result[2]<<endl;

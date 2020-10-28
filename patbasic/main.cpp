@@ -2801,15 +2801,109 @@ int main()
     }
     printf("%.2lf\n",sum);
     return 0;
-}*/
+}
+
 #include<iostream>
-#include<cstdio>
-#include<map>
-#include<string>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+int big(int num);
+int small(int num);
+void display(int a);
+vector<int> digit;
+void fm(int num);
+int main()
+{
+    int n;
+    while(cin>>n)
+    {
+        if(n<10000 && n>0)
+        {
+            int a=0,b=0;
+            do
+            {
+                fm(n);
+                a=big(n);
+                b=small(n);
+                n=a-b;
+                display(a);
+                cout<<" - ";
+                display(b);
+                cout<<" = ";
+                display(n);
+                cout<<endl;
+                if(n%1111==0)
+                    break;
+            }while(n!=6174);
+        }
+    }
+    return 0;
+}
+void fm(int num)
+{
+    digit.clear();
+    while(num)
+    {
+        digit.push_back(num%10);
+        num/=10;
+    }
+    sort(digit.begin(),digit.end());
+}
+
+int small(int num)
+{
+    int res=0;
+    
+    for(int i=0;i<4;i++)
+    {
+        res=10*res+digit[i];
+    }
+    return res;
+}
+int big(int num)
+{
+    int res=0;
+    for(int i=3;i>=0;i--)
+    {
+        res=10*res+digit[i];
+    }
+    return res;
+}
+void display(int a)
+{
+    if(a>=1000)
+        cout<<a;
+    else if(a>=100)
+        cout<<"0"<<a;
+    else if(a>=10)
+        cout<<"00"<<a;
+    else if(a>=0)
+        cout<<"000"<<a;
+}*/
+
+#include <iostream>
+#include <map>
 using namespace std;
 int main()
 {
-    cout<<"/*"<<endl;
-    cout<<"*/"<<endl;
+    int n;
+    cin>>n;
+    map<int,int> example;
+    for(int i=0;i<n;i++)
+    {
+        int a,b;
+        scanf("%d%d",&a,&b);
+        if(example.find(a)!=example.end())
+        {
+            example.insert(make_pair(a, b));
+        }
+        else
+            example[a]+=b;
+    }
+    for(map<int,int>::iterator it = example.begin();it!=example.end();++it)
+    {
+        printf("%d %d\n",it->first,it->second);
+    }
     return 0;
 }
