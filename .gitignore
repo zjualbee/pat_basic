@@ -1,3 +1,4 @@
 python/__pycache__/
 .DS_Strore
 patbasic/.vscode/
+*.pyc

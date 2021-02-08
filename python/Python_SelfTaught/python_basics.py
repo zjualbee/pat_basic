@@ -33,19 +33,10 @@ for de in lis:
     i+=1
 
 
-#%%test module random 
-import random
-test=[]
-for i in range(0,10):
-    examplerandom=random.randint(0,100)
-    test.append(examplerandom)
-
-print(test)
-
 
 #%% test file read and write
 my_list = list()
-with open("cubed.py","r") as f:
+with open("test.py","r") as f:
     my_list.append(f.read())
 
 print(my_list)
